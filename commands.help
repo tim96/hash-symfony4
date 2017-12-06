@@ -7,3 +7,9 @@ composer require annotations
 
 3. Install twig package
 composer require twig
+
+4. Install form component
+composer require form
+
+5. Install validator component
+composer require validator
