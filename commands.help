@@ -13,3 +13,9 @@ composer require form
 
 5. Install validator component
 composer require validator
+
+
+# Help commands:
+
+1. Run phpstan to analyze code
+vendor/bin/phpstan analyse src bin public
