@@ -19,3 +19,4 @@ composer require validator
 
 1. Run phpstan to analyze code
 vendor/bin/phpstan analyse src bin public
+vendor/bin/phpstan analyse -l 3 -c phpstan.neon src bin public
