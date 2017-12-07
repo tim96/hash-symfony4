@@ -2,7 +2,7 @@
 1. Install web debug profiler
 composer require --dev profiler
 
-2. Install annotation functional
+2. Install annotation functional (Without it Assert validation rules from annotations won't work)
 composer require annotations
 
 3. Install twig package
