@@ -21,19 +21,11 @@ class HashDto
      */
     protected $salt;
 
-    /**
-     * @return string
-     */
     public function getText(): ?string
     {
         return $this->text;
     }
 
-    /**
-     * @param string $text
-     *
-     * @return $this
-     */
     public function setText(string $text): self
     {
         $this->text = $text;
@@ -41,19 +33,11 @@ class HashDto
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getSalt(): ?string
     {
         return $this->salt;
     }
 
-    /**
-     * @param string $salt
-     *
-     * @return $this
-     */
     public function setSalt(?string $salt): self
     {
         $this->salt = $salt;
