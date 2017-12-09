@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block meta_tags %}
-    {% endblock meta_tags %}
+        <meta name="description" content="Move project from silex 2 to symfony 4">
+        <meta name="keywords" content="PHP, Symfony, Symfony 4, Symfony framework, tutorial, example">
+        <meta name="author" content="tim96">
+    {% endblock %}
 
     {#<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">#}
     {#<link href="{{ asset('css/styles.min.css') }}?v=v1" rel="stylesheet">#}
@@ -45,15 +48,15 @@
                 {#<li{% if active == 'json' %} class="active"{% endif %}>#}
                     {#<a href="{{ path('json') }}">Json</a>#}
                 {#</li>#}
-                {#<li{% if active == 'base64' %} class="active"{% endif %}>#}
-                    {#<a href="{{ path('base64') }}">Base64</a>#}
-                {#</li>#}
+                <li{% if active == 'base64' %} class="active"{% endif %}>
+                    <a href="{{ path('base64') }}">Base64</a>
+                </li>
             </ul>
-            {#<ul class="nav navbar-nav navbar-right">#}
-                {#<li{% if active == 'about' %} class="active"{% endif %}>#}
-                    {#<a href="{{ path('about') }}">About</a>#}
-                {#</li>#}
-            {#</ul>#}
+            <ul class="nav navbar-nav navbar-right">
+                <li{% if active == 'about' %} class="active"{% endif %}>
+                    <a href="{{ path('about') }}">About</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
