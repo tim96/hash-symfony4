@@ -55,6 +55,7 @@ class Base64Dto
         return $this;
     }
 
+    // todo: move inside manager. Build this class more abstract
     public function isConvertFromBase64(): bool
     {
         return static::CONVERT_FROM_BASE_64 === $this->select;
