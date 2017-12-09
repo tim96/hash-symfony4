@@ -1,3 +1,11 @@
 hash:
     path: /
     controller: App\Controller\IndexController::hash
+
+about:
+    path: /about
+    controller: App\Controller\IndexController::about
+
+base64:
+    path: /base64
+    controller: App\Controller\IndexController::base64
