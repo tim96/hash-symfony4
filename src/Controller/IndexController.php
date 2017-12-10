@@ -53,4 +53,10 @@ class IndexController extends Controller
 
         return $this->render('index/base64.html.twig', ['form' => $form->createView(), 'result' => $result]);
     }
+
+    // added action postfix because method json already exist in parent controller
+    public function jsonAction()
+    {
+        return $this->render('index/json.html.twig');
+    }
 }

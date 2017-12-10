@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}Hash{% endblock title %}</title>
+    <title>{% block title %}HashCode{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block meta_tags %}
@@ -45,9 +45,9 @@
                 {#<li{% if active == 'uuid' %} class="active"{% endif %}>#}
                     {#<a href="{{ path('uuid') }}">Uuid</a>#}
                 {#</li>#}
-                {#<li{% if active == 'json' %} class="active"{% endif %}>#}
-                    {#<a href="{{ path('json') }}">Json</a>#}
-                {#</li>#}
+                <li{% if active == 'json' %} class="active"{% endif %}>
+                    <a href="{{ path('json') }}">Json</a>
+                </li>
                 <li{% if active == 'base64' %} class="active"{% endif %}>
                     <a href="{{ path('base64') }}">Base64</a>
                 </li>

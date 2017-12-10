@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+{% block title %}
+    HashCode - Check JSON
+{% endblock %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="comment">The JSON Validator </label>
+            <textarea class="form-control" rows="5" id="json_text" placeholder="Enter JSON to validate"></textarea>
+        </div>
+        <button id="button" type="button" class="btn btn-default">Check</button>
+    </div>
+    <div class="col-md-12" style="margin-top:10px;">
+        <h2>Result JSON Validator: </h2>
+        <pre id="result"></pre>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function(){
+        $("#button").click(function () {
+            var text = $('#json_text').val();
+            if (!text) {
+                alert('Enter JSON to validate');
+            }
+
+            var options = {};
+
+            // Require it for nodejs environment
+            // var JSONLint = require( 'json-lint' );
+
+            // Run the JSON string through the linter
+            /*var lint = JSONLint( text, options );
+
+            // Do something with the error
+            if ( lint.error ) {
+                console.log(lint.error); // Error Message
+                console.log(lint.line); // Line number in json file where error was found
+                console.log(lint.character); // Character of line in json file where error was found
+            } else {
+                console.log(lint);
+            }*/
+
+            try {
+                var result = jsonlint.parse(document.getElementById("json_text").value);
+                if (result) {
+                    document.getElementById("result").innerHTML = "JSON is valid!";
+                    document.getElementById("result").className = "pass";
+                    // if (document.getElementById("reformat").checked) {
+                    document.getElementById("json_text").value = JSON.stringify(result, null, "  ");
+                    // }
+                }
+            } catch(e) {
+                document.getElementById("result").innerHTML = e;
+                document.getElementById("result").className = "fail";
+            }
+        });
+    }, false);
+</script>
+
+<script type='text/javascript' src='js/jsonlint.js'></script>
+<script type='text/javascript' src='js/json2.js'></script>
+{% endblock %}

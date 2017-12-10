@@ -9,3 +9,7 @@ about:
 base64:
     path: /base64
     controller: App\Controller\IndexController::base64
+
+json:
+    path: /json
+    controller: App\Controller\IndexController::jsonAction
