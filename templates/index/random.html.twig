@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% if form is defined %}
+    {% form_theme form 'form/fields.twig' %}
+{% endif %}
+
+{% block title %}
+    HashCode - Random string generator
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form, {'action': path('random'), 'method': 'POST'}) }}
+
+            {{ form_widget(form) }}
+
+            <button type="submit" name="submit" class="btn btn-default">Generate Random String</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    {% if result is not null %}
+
+        <h2>Random text generator result</h2>
+
+        <table style="table-layout:fixed;">
+            <tr>
+                <td class="wrapword">
+                    {{ result }}
+                </td>
+            </tr>
+        </table>
+
+        <style>
+            .wrapword{
+                white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+                white-space: -webkit-pre-wrap; /*Chrome & Safari */
+                white-space: -pre-wrap;      /* Opera 4-6 */
+                white-space: -o-pre-wrap;    /* Opera 7 */
+                white-space: pre-wrap;       /* css-3 */
+                word-wrap: break-word;       /* Internet Explorer 5.5+ */
+                word-break: break-all;
+                white-space: normal;
+            }
+        </style>
+
+    {% endif %}
+{% endblock %}

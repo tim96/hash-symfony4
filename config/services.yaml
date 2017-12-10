@@ -35,3 +35,8 @@ services:
         class: App\Manager\PasswordGeneratorManager
         autowire: false
         public: true
+
+    manager.random_string:
+        class: App\Manager\RandomStringManager
+        autowire: false
+        public: true

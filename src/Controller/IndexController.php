@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Dto\Base64Dto;
 use App\Dto\HashDto;
 use App\Dto\PasswordGenerateDto;
+use App\Dto\RandomStringDto;
 use App\Form\Base64Type;
 use App\Form\HashType;
 use App\Form\PasswordGenerateType;
+use App\Form\RandomStringType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -73,5 +75,18 @@ class IndexController extends Controller
         }
 
         return $this->render('index/password.html.twig', ['form' => $form->createView(), 'results' => $results]);
+    }
+
+    public function random(Request $request)
+    {
+        $result = null;
+        $form = $this->createForm(RandomStringType::class, new RandomStringDto());
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $result = $this->get('manager.random_string')->generate($form->getData());
+        }
+
+        return $this->render('index/random.html.twig', ['form' => $form->createView(), 'result' => $result]);
     }
 }

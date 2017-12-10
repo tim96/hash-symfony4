@@ -17,3 +17,7 @@ json:
 password:
     path: /password
     controller: App\Controller\IndexController::password
+
+random:
+    path: /random
+    controller: App\Controller\IndexController::random
