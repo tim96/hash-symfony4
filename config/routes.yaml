@@ -13,3 +13,7 @@ base64:
 json:
     path: /json
     controller: App\Controller\IndexController::jsonAction
+
+password:
+    path: /password
+    controller: App\Controller\IndexController::password

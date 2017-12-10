@@ -30,3 +30,8 @@ services:
         class: App\Manager\HashManager
         autowire: false
         public: true
+
+    manager.password_generator:
+        class: App\Manager\PasswordGeneratorManager
+        autowire: false
+        public: true

@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Dto\Base64Dto;
 use App\Dto\HashDto;
+use App\Dto\PasswordGenerateDto;
 use App\Form\Base64Type;
 use App\Form\HashType;
+use App\Form\PasswordGenerateType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -58,5 +60,18 @@ class IndexController extends Controller
     public function jsonAction()
     {
         return $this->render('index/json.html.twig');
+    }
+
+    public function password(Request $request)
+    {
+        $results = [];
+        $form = $this->createForm(PasswordGenerateType::class, new PasswordGenerateDto());
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $results = $this->get('manager.password_generator')->generate($form->getData());
+        }
+
+        return $this->render('index/password.html.twig', ['form' => $form->createView(), 'results' => $results]);
     }
 }
