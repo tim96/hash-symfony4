@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% if form is defined %}
+    {% form_theme form 'form/fields.twig' %}
+{% endif %}
+
+{% block title %}
+    HashCode - Uuid generator
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="hash-result-body">
+            <div class="row">
+                <h2>Uuid result</h2>
+            </div>
+            <!-- todo: add color block and background -->
+            <div class="row">
+                {% for uuid in uuids %}
+                    <div class="col-md-2">
+                        <h4>{{ uuid.name }}</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="wordwrap">
+                            <h4><strong>{{ uuid.value }}</strong></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

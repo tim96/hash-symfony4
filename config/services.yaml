@@ -40,3 +40,8 @@ services:
         class: App\Manager\RandomStringManager
         autowire: false
         public: true
+
+    manager.uuid_generator:
+        class: App\Manager\UuidGeneratorManager
+        autowire: false
+        public: true

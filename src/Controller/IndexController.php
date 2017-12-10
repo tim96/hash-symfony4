@@ -89,4 +89,11 @@ class IndexController extends Controller
 
         return $this->render('index/random.html.twig', ['form' => $form->createView(), 'result' => $result]);
     }
+
+    public function uuid()
+    {
+        $uuids = $this->get('manager.uuid_generator')->generate();
+
+        return $this->render('index/uuid.html.twig', ['uuids' => $uuids]);
+    }
 }
