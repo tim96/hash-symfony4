@@ -17,6 +17,19 @@ composer require validator
 
 # Help commands:
 
-1. Run phpstan to analyze code
+1. Run phpstan to analyze code:
 vendor/bin/phpstan analyse src bin public
 vendor/bin/phpstan analyse -l 3 -c phpstan.neon src bin public
+vendor/bin/phpstan analyse -l 4 -c phpstan.neon src bin public
+vendor/bin/phpstan analyse -l 5 -c phpstan.neon src bin public
+
+2. Behat tests
+
+3. Phpmetrics (http://www.phpmetrics.org/)
+composer global require 'phpmetrics/phpmetrics'
+phpmetrics --report-html=myreport.html /path/of/your/sources
+
+4. List of static analysis tools:
+https://github.com/exakat/php-static-analysis-tools
+
+
