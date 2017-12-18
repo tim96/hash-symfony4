@@ -3,6 +3,7 @@
 namespace App\Manager\Form;
 
 use App\Dto\HashDto;
+use App\Dto\HashResultDto;
 use App\Form\HashType;
 use App\Manager\HashManager;
 
@@ -20,7 +21,7 @@ class HashProcessForm extends BaseProcessForm
         return $this;
     }
 
-    public function getInstance()
+    public function getInstance(): HashDto
     {
         return new HashDto();
     }
@@ -30,7 +31,7 @@ class HashProcessForm extends BaseProcessForm
         return HashType::class;
     }
 
-    public function onFinish()
+    public function onFinish(): HashResultDto
     {
         /** @var HashDto $data */
         $data = $this->form->getData();
@@ -38,7 +39,7 @@ class HashProcessForm extends BaseProcessForm
         return $this->hashManager->generate($data);
     }
 
-    public function onError()
+    public function onError(): null
     {
         return null;
     }
