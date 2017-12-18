@@ -39,8 +39,7 @@ class HashProcessForm extends BaseProcessForm
         return $this->hashManager->generate($data);
     }
 
-    public function onError(): null
+    public function onError(): void
     {
-        return null;
     }
 }
